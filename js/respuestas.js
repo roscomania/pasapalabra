@@ -8,31 +8,36 @@ function marcarRespuesta(letra, color) {
     
     if (roscoActivo.pendientes.length == 0 && roscoActivo.pasadas.length > 0) {
         dom.marcarPasadasComoPendientes();
-        for (const letra of roscoActivo.pasadas) {
-            letra.style.background = COLOR_FONDO_PENDIENTE;
+        if (!roscoActivo.comodinesHabilitados) {
+            roscoActivo.comodinesHabilitados = true;
+            dom.refrescarComodines();
         }
-        
+
         roscoActivo.actualizarRespuestas();
     }
     
-    dom.refrescar();
+    dom.refrescarRespuesta(letra);
 }
 
 
 function marcarRespuestaBoton(letra) {
     let color;
-
     if (letra.style.background == COLOR_FONDO_PENDIENTE || !letra.style.background) color = COLOR_FONDO_ACIERTO;
-    else if (letra.style.background == COLOR_FONDO_ACIERTO) color = COLOR_FONDO_PASADA;
-    else if (letra.style.background == COLOR_FONDO_PASADA) color = COLOR_FONDO_ERROR;
     else if (letra.style.background == COLOR_FONDO_ERROR) color = COLOR_FONDO_PENDIENTE;
+    else if (letra.style.background == COLOR_FONDO_PASADA) color = COLOR_FONDO_ERROR;
+
+    if (roscoActivo.pasadas.length || roscoActivo.pendientes.length) {
+        if (letra.style.background == COLOR_FONDO_ACIERTO) color = COLOR_FONDO_PASADA;
+    } else {
+        if (letra.style.background == COLOR_FONDO_ACIERTO) color = COLOR_FONDO_ERROR;
+    }
 
     marcarRespuesta(letra, color);
 }
 
 
 function marcarRespuestaAutomatica(color) {
-    const letrasPendientes = roscoActivo.letrasPendientes();
+    const letrasPendientes = roscoActivo.pendientes;
     if (!letrasPendientes || !letrasPendientes.length) return;
     
     const letra = letrasPendientes[0];

@@ -5,32 +5,29 @@ class Reloj {
     }
 
     pausar() {
+        if (roscoActivo.juegoTerminado) return;
         this.tiempoCorre = false;
         this.consumirTiempo();
-        dom.refrescar();
-    }
-
-    reanudar() {
-        this.tiempoCorre = true;
-        dom.refrescar();
+        dom.refrescarBotonPlayPausa();
     }
 
     pausarReanudar() {
-        if (this.tiempoCorre) {
-            this.pausar();
-        } else {
-            this.reanudar();
-        }
+        if (roscoActivo.juegoTerminado) return;
+
+        this.tiempoCorre = !this.tiempoCorre;
+        if (!this.tiempoCorre) this.consumirTiempo();
+        
+        dom.refrescarBotonPlayPausa();
     }
 
     consumirTiempo() {
-        if (roscoActivo.segundos == 0) return;
-    
+        if (roscoActivo.milisegundos == 0) return;
+
         const milisegundosMin = roscoActivo.milisegundos - 500;
-        const milisegundosMax = (roscoActivo.segundos) * 1000;
+        const milisegundosMax = roscoActivo.segundos * 1000;
 
         roscoActivo.milisegundos = Math.max(milisegundosMin, milisegundosMax);    
-        roscoActivo.segundos = Math.floor(roscoActivo.milisegundos / 1000);
+        roscoActivo.segundos = Math.max(0, Math.floor(roscoActivo.milisegundos / 1000));
     };
 }
 
@@ -39,12 +36,11 @@ function correrTiempo() {
     if (!reloj.tiempoCorre) return;
     
     roscoActivo.milisegundos -= 100;
-    roscoActivo.segundos = Math.floor(roscoActivo.milisegundos / 1000);
-
-    if (roscoActivo.segundos > 0) {
-        dom.refrescar();
-    } else {
+    roscoActivo.segundos = Math.max(0, Math.floor(roscoActivo.milisegundos / 1000));
+    
+    if (roscoActivo.milisegundos == 0) {
         reloj.pausar();
         clearInterval(this.interval);
     }
+    dom.refrescarSegundos();
 }

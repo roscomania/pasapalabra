@@ -6,6 +6,8 @@ class Rosco {
         this.segundos_iniciales = segundos;
         this.milisegundos = segundos * 1000;
         this.comodines = Array.from({ length: parseInt(comodines) }, (_, i) => i);
+        this.comodinesHabilitados = false;
+        this.juegoTerminado = false;
 
         this.aciertos = [];
         this.errores = [];
@@ -20,10 +22,6 @@ class Rosco {
         this.errores = letras.filter(letra => letra.style.background == COLOR_FONDO_ERROR);
         this.pendientes = letras.filter(letra => letra.style.background == COLOR_FONDO_PENDIENTE || !letra.style.background);
         this.pasadas = letras.filter(letra => letra.style.background == COLOR_FONDO_PASADA);
-    }
-
-    letrasPendientes() {
-        return Array.from(dom.DIV_LETRA).filter(letra => letra.style.background == COLOR_FONDO_PENDIENTE || !letra.style.background);
     }
 
     deshabilitarHabilitarComodin(boton) {
@@ -44,16 +42,16 @@ class Rosco {
         this.segundos = segundos;
         this.milisegundos = this.segundos * 1000;
 
-        if (this.segundos > 0 && segundosPrevios <= 0) {
+        if (this.milisegundos > 0 && segundosPrevios <= 0) {
             clearInterval(reloj.interval);
             reloj.interval = setInterval(correrTiempo, 100);
         }
 
-        dom.refrescar();
+        dom.refrescarSegundos(this.segundos);
     }
 
     sumarSegundos(segundos) {
-        segundos = Math.min(this.segundos_iniciales, this.segundos + segundos);
+        segundos = this.segundos + segundos;
         this.establecerSegundos(segundos);
     }
 

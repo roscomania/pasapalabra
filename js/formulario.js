@@ -2,8 +2,6 @@ function validarInputs() {
     const jugador1 = document.getElementById("jugador1");
     const jugador2 = document.getElementById("jugador2");
 
-    console.log(jugador1.value);
-    console.log(jugador2.value);
     if (!jugador1.value) {
         jugador1.setCustomValidity('Por favor, complete este campo.');
         return false;

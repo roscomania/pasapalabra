@@ -11,8 +11,8 @@ class Partida {
     }
 
     obtenerRoscoActivo() {
-        let rosco1 = partida.roscos[0];
-        let rosco2 = partida.roscos[1];
+        let rosco1 = this.roscos[0];
+        let rosco2 = this.roscos[1];
 
         if (rosco1.activo) {
             return rosco1;
@@ -23,8 +23,8 @@ class Partida {
 
     cambiarRoscoActivo() {
         if (reloj.tiempoCorre) return;
-        partida.roscos[0].activo = !partida.roscos[0].activo;
-        partida.roscos[1].activo = !partida.roscos[1].activo;
+        this.roscos[0].activo = !this.roscos[0].activo;
+        this.roscos[1].activo = !this.roscos[1].activo;
 
         roscoActivo = this.obtenerRoscoActivo();
 
