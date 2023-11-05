@@ -28,6 +28,14 @@ class DOM {
         this.DIV_ERRORES.innerHTML = roscoActivo.errores.length;
     }
 
+    _refrescarTextoCentral() {
+        if (roscoActivo.milisegundos > 0 && roscoActivo.pendientes.length > 0) {
+            this._marcarJuegoContinua();
+        } else {
+            this._marcarJuegoTerminado();
+        }
+    }
+
     deshabilitarHabilitarComodin(boton) {
         boton.classList.toggle("disabled");
     }
@@ -41,11 +49,7 @@ class DOM {
     refrescarSegundos() {
         this.DIV_SEGUNDOS.innerHTML = roscoActivo.segundos;
         
-        if (roscoActivo.milisegundos > 0) {
-            this._marcarJuegoContinua();
-        } else {
-            this._marcarJuegoTerminado();
-        }
+        this._refrescarTextoCentral();
     }
 
     refrescarRespuesta(letra) {
@@ -59,12 +63,7 @@ class DOM {
             letra.style.background = COLOR_FONDO_PENDIENTE;
         }
 
-        if (roscoActivo.pendientes.length > 0) {
-            this._marcarJuegoContinua();
-        } else {
-            this._marcarJuegoTerminado();
-        }
-
+        this._refrescarTextoCentral();
         this._refrescarAciertosErrores();
     }
 
@@ -91,17 +90,12 @@ class DOM {
             }
         }
 
-        if (roscoActivo.pendientes.length > 0 && roscoActivo.milisegundos > 0) {
-            this._marcarJuegoContinua();
-        } else {
-            this._marcarJuegoTerminado();
-        }
-        
         this.NOMBRE_JUGADOR.innerHTML = roscoActivo.nombreJugador;
         this.DIV_ACIERTOS.innerHTML = roscoActivo.aciertos.length;
         this.DIV_ERRORES.innerHTML = roscoActivo.errores.length;
         this.DIV_SEGUNDOS.innerHTML = roscoActivo.segundos;
-
+        
+        this._refrescarTextoCentral();
         this.refrescarBotonPlayPausa();
         this.refrescarComodines();
     }
