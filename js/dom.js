@@ -95,7 +95,9 @@ class DOM {
         }
 
         this.NOMBRE_JUGADOR.innerHTML = roscoActivo.nombreJugador;
+        this.NOMBRE_JUGADOR.style.color = roscoActivo.color;
         this.NOMBRE_RIVAL.innerHTML = roscoEnEspera.nombreJugador;
+        this.NOMBRE_RIVAL.style.color = roscoEnEspera.color;
 
         this.DIV_ACIERTOS.innerHTML = roscoActivo.aciertos.length;
         this.ACIERTOS_RIVAL.innerHTML = roscoEnEspera.aciertos.length;
