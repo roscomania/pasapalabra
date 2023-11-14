@@ -7,6 +7,10 @@ class DOM {
         this.DIV_SEGUNDOS = document.getElementById("segundos");
         this.LETRA_CENTRAL = document.getElementById("letraCentral");
         this.NOMBRE_JUGADOR = document.getElementById("nombreJugador");
+        this.NOMBRE_RIVAL = document.getElementById("nombreRival");
+        this.ACIERTOS_RIVAL = document.getElementById("aciertosRival");
+        this.ERRORES_RIVAL = document.getElementById("erroresRival");
+        this.SEGUNDOS_RIVAL = document.getElementById("segundosRival");
         this.COMODINES = document.getElementById("comodines");
     }
 
@@ -91,9 +95,16 @@ class DOM {
         }
 
         this.NOMBRE_JUGADOR.innerHTML = roscoActivo.nombreJugador;
+        this.NOMBRE_RIVAL.innerHTML = roscoEnEspera.nombreJugador;
+
         this.DIV_ACIERTOS.innerHTML = roscoActivo.aciertos.length;
+        this.ACIERTOS_RIVAL.innerHTML = roscoEnEspera.aciertos.length;
+
         this.DIV_ERRORES.innerHTML = roscoActivo.errores.length;
+        this.ERRORES_RIVAL.innerHTML = roscoEnEspera.errores.length;
+        
         this.DIV_SEGUNDOS.innerHTML = roscoActivo.segundos;
+        this.SEGUNDOS_RIVAL.innerHTML = roscoEnEspera.segundos;
         
         this._refrescarTextoCentral();
         this.refrescarBotonPlayPausa();
