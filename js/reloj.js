@@ -23,7 +23,7 @@ class Reloj {
     consumirTiempo() {
         if (roscoActivo.milisegundos == 0) return;
 
-        const milisegundosMin = roscoActivo.milisegundos - 500;
+        const milisegundosMin = roscoActivo.milisegundos - 200;
         const milisegundosMax = roscoActivo.segundos * 1000;
 
         roscoActivo.milisegundos = Math.max(milisegundosMin, milisegundosMax);    
@@ -40,10 +40,6 @@ function correrTiempo() {
     
     if (roscoActivo.milisegundos == 0) {
         reloj.pausar();
-        const player = new Tone.Player("https://tonejs.github.io/audio/berklee/gong_2.mp3").toDestination();
-        Tone.loaded().then(() => {
-            player.start();
-        });
         clearInterval(this.interval);
     }
     dom.refrescarSegundos();

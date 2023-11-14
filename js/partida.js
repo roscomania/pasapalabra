@@ -8,17 +8,7 @@ class Partida {
 
         this.roscos = [rosco1, rosco2];
         roscoActivo = this.roscos[0];
-    }
-
-    obtenerRoscoActivo() {
-        let rosco1 = this.roscos[0];
-        let rosco2 = this.roscos[1];
-
-        if (rosco1.activo) {
-            return rosco1;
-        } else if (rosco2.activo) {
-            return rosco2;
-        }
+        roscoEnEspera = this.roscos[1];
     }
 
     cambiarRoscoActivo() {
@@ -26,7 +16,13 @@ class Partida {
         this.roscos[0].activo = !this.roscos[0].activo;
         this.roscos[1].activo = !this.roscos[1].activo;
 
-        roscoActivo = this.obtenerRoscoActivo();
+        if (this.roscos[0].activo) {
+            roscoActivo = this.roscos[0];
+            roscoEnEspera = this.roscos[1];
+        } else if (this.roscos[1].activo) {
+            roscoActivo = this.roscos[1];
+            roscoEnEspera = this.roscos[0];
+        }
 
         dom.refrescar();
     }

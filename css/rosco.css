@@ -173,41 +173,41 @@ body {
    background: linear-gradient(45deg, blue, rgb(79, 107, 247));
 }
 .deg-botonPlayPausa {
-   top: 5.5vh;
+   top: 8vh;
    right: 5vw;
 }
 .acierto {
    background: linear-gradient(45deg, rgb(67, 235, 67), rgb(110, 144, 110));
 }
 .deg-acierto {
-   top: 10vh;
+   top: 12.5vh;
    right: 17vw;
 }
 .pasapalabra {
    background: linear-gradient(45deg, orange, rgb(249, 183, 60));
 }
 .deg-pasapalabra {
-   top: 10vh;
+   top: 12.5vh;
    right: 13vw;
 }
 .error {
    background: linear-gradient(45deg, red, rgb(136, 47, 47));
 }
 .deg-error {
-   top: 10vh;
+   top: 12.5vh;
    right: 9vw;
 }
 .cambiarRosco {
    background: gray;
 }
 .deg-cambiarRosco {
-   top: 10vh;
+   top: 12.5vh;
    right: 5vw;
 }
 /* */
 
 .nombreJugador {
-   width: 22vh;
+   width: 22vw;
    height: 8vh;
    background: transparent;
    color: blue;
@@ -215,8 +215,57 @@ body {
    font-weight: bold;
 }
 .deg-nombreJugador {
-   top: 5.5vh;
-   right: 85vw;
+   top: 8vh;
+   right: 78vw;
+}
+
+.nombreRival {
+   width: 15vw;
+   height: 8vh;
+   background: transparent;
+   color: darkslategrey;
+   font-size: 3vh;
+   font-weight: bold;
+}
+.deg-nombreRival {
+   top: 13vh;
+   right: 84.5vw;
+}
+.aciertosRival {
+   width: 2vw;
+   height: 2vw;
+   background: linear-gradient(45deg, rgb(67, 235, 67), rgb(110, 144, 110));
+   color: white;
+   font-size: 1.5vw;
+   font-weight: bold;
+}
+.deg-aciertosRival {
+   top: 15vh;
+   right: 86vw;
+}
+.erroresRival {
+   width: 1.33vw;
+   height: 2vw;
+   background: linear-gradient(45deg, red, rgb(136, 47, 47));
+   color: white;
+   font-size: 1.5vw;
+   font-weight: bold;
+}
+.deg-erroresRival {
+   top: 15vh;
+   right: 84.33vw;
+}
+.segundosRival {
+   width: 2vw;
+   height: 2vw;
+   background: linear-gradient(45deg, blue, rgb(79, 107, 247));
+   color: white;
+   font-size: 1vw;
+   font-weight: bold;
+}
+.deg-segundosRival {
+   top: 15vh;
+   right: 82vw;
 }
 
 .letraCentral {

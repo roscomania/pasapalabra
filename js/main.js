@@ -1,4 +1,4 @@
-let dom, reloj, roscoActivo, partida;
+let dom, reloj, roscoActivo, roscoEnEspera, partida;
 
 
 function iniciarJuego() {
