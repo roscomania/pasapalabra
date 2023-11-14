@@ -2,6 +2,11 @@ class Rosco {
     constructor(nombreJugador, activo, segundos, comodines) {
         this.nombreJugador = nombreJugador;
         this.activo = activo;
+        if (activo) {
+            this.color = AZUL;
+        } else {
+            this.color = 'rgb(255, 111, 0)';
+        }
         this.segundos = parseInt(segundos);
         this.segundos_iniciales = segundos;
         this.milisegundos = segundos * 1000;
