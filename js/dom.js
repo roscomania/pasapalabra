@@ -15,7 +15,8 @@ class DOM {
     }
 
     _marcarJuegoTerminado() {
-        this.LETRA_CENTRAL.style.fontSize = "5vh";
+        this.LETRA_CENTRAL.style.fontSize = "7vh";
+        this.LETRA_CENTRAL.style.webkitTextStroke = "0.15vh cyan";
         this.LETRA_CENTRAL.innerHTML = "Juego terminado";
         reloj.pausar();
         roscoActivo.juegoTerminado = true;
@@ -23,6 +24,7 @@ class DOM {
 
     _marcarJuegoContinua() {
         this.LETRA_CENTRAL.style.fontSize = "35vh";
+        this.LETRA_CENTRAL.style.webkitTextStroke = "0.75vh cyan";
         this.LETRA_CENTRAL.innerHTML = roscoActivo.pendientes[0].innerText;
         roscoActivo.juegoTerminado = false;
     }
@@ -95,9 +97,7 @@ class DOM {
         }
 
         this.NOMBRE_JUGADOR.innerHTML = roscoActivo.nombreJugador;
-        this.NOMBRE_JUGADOR.style.color = roscoActivo.color;
         this.NOMBRE_RIVAL.innerHTML = roscoEnEspera.nombreJugador;
-        this.NOMBRE_RIVAL.style.color = roscoEnEspera.color;
 
         this.DIV_ACIERTOS.innerHTML = roscoActivo.aciertos.length;
         this.ACIERTOS_RIVAL.innerHTML = roscoEnEspera.aciertos.length;
@@ -119,10 +119,10 @@ class DOM {
         } else {
             let comodinesHTML = '';
             for (let i = 0; i < partida.comodines; i++) {
-                let disabled = roscoActivo.comodines.includes(i) ? '' : 'disabled';
+                let disabled = roscoActivo.comodines.includes(i) ? 'enabled' : 'disabled';
                 comodinesHTML += `
                     <div id="${i}" onclick="roscoActivo.deshabilitarHabilitarComodin(this);"
-                    class="${disabled} circulo botonCircular comodin deg-comodin${i}">
+                    class="${disabled} circulo botonCircular comodin comodin${i}">
                         <i class="fa fa-trophy" aria-hidden="true"></i>
                     </div>
                 `;
