@@ -118,12 +118,15 @@ class DOM {
             this.COMODINES.style.display = 'none';
         } else {
             let comodinesHTML = '';
+            let iconosComodines = [null, 'book', 'exchange']
+            let textosComodines = ['X2', null, null]
             for (let i = 0; i < partida.comodines; i++) {
                 let disabled = roscoActivo.comodines.includes(i) ? 'enabled' : 'disabled';
+                let icono = iconosComodines[i] ? `<i class="fa fa-${iconosComodines[i]}" aria-hidden="true"></i>` : `<b>${textosComodines[i]}</b>`
                 comodinesHTML += `
                     <div id="${i}" onclick="roscoActivo.deshabilitarHabilitarComodin(this);"
                     class="${disabled} circulo botonCircular comodin comodin${i}">
-                        <i class="fa fa-trophy" aria-hidden="true"></i>
+                        ${icono}
                     </div>
                 `;
             }

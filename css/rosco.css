@@ -274,9 +274,7 @@ body {
 .copyright {
    font-size: 2.5vh;
    text-align: right;
-   left: 2vw;
-   top: 50vh;
-   /* height: 3vh; */
+   color: cyan;
    width: 98vw;
 }
 
@@ -287,10 +285,6 @@ body {
 
 .infoRival {
    -webkit-text-stroke: 0px;
-}
-
-.copyright {
-   color: cyan
 }
 
 .izquierda, .derecha > .superior {
