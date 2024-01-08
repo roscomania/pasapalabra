@@ -1,7 +1,8 @@
 body {
-    background: linear-gradient(45deg, #ffffff, #c8c8c8);
-    height: 100vh;
-    margin: 0;
+    background: linear-gradient(45deg, rgb(2, 3, 71), rgb(2, 3, 71));
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 96vh;
 }
 
 hr {
@@ -11,7 +12,7 @@ hr {
 
 .modal {
     width: 100%;
-    height: 100%;
+    height: 93.05vh;
     background-color: transparent;
     display: flex;
     align-items: center;
@@ -23,22 +24,15 @@ hr {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(228, 166, 166, 0.7);
+    background: rgb(6, 97, 128);
     padding: 1vh 1vw 0vh 1vw;
-    box-shadow: 8px 8px 8px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 3vh 3vh 3vh 3vh black;
 }
 
 i {
     font-size: 3vh;
     align-items: center;
     margin-right: 1vw;
-}
-
-button {
-    background: linear-gradient(45deg, blue, rgb(79, 107, 247));
-    height: 5vh;
-    float: right;
-    font-weight: bold;
 }
 
 label {
@@ -57,7 +51,7 @@ input[type="text"]:focus {
 select {
     margin-left: 1vw;
     padding: 0.5vh 0.5vh;
-    font-size: 1.5vh;
+    font-size: 2.5vh;
 }
 select:focus {
     border: 1px solid #007bff;
@@ -68,9 +62,9 @@ select:hover {
  
 input[type="number"] {
     margin-left: 1vw;
-    height: 2.5vh;
-    border-width: 0;
-    font-size: 1.5vh;
+    height: 3.5vh;
+    border-width: 0.2vh;
+    font-size: 2.5vh;
 }
 input[type="number"]:focus {
     border: 1px solid #007bff;
@@ -94,10 +88,14 @@ input {
 }
   
 button {
-    background-color: #007bff;
-    color: #fff;
+    background: cyan;
+    color: black;
     border: none;
     margin-left: 24.5vw;
-    padding: 2vh 1.5vw;
+    /* padding: 2vh 1.5vw; */
     cursor: pointer;
+    height: 5vh;
+    float: right;
+    font-weight: bold;
+    font-size: 3vh;
 }
