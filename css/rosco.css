@@ -113,26 +113,29 @@ body {
 .countdown {
    top: 60vh;
    left: 2vw;
-   width: 10vw;
-   height: 10vw;
+   width: 22vh;
+   height: 22vh;
    background: linear-gradient(45deg, rgb(79, 107, 247), rgb(79, 107, 247));
    font-size: 12vh;
    color: black;
+   font-weight: bold;
 }
+
 .aciertos {
    top: 84vh;
    left: 2vw;
-   width: 5vw;
-   height: 5vw;
+   width: 12vh;
+   height: 12vh;
    background: linear-gradient(45deg, rgb(67, 235, 67), rgb(110, 144, 110));
    font-size: 10vh;
    color: black;
+   font-weight: bold;
 }
 .errores {
    top: 84vh;
-   left: 8.5vw;
-   width: 3.5vw;
-   height: 5vw;
+   left: 18vh;
+   width: 8vh;
+   height: 12vh;
    background: linear-gradient(45deg, red, rgb(136, 47, 47));
    font-size: 8vh;
    color: white;
@@ -143,16 +146,14 @@ body {
    width: 3vw;
    height: 3vw;
    background: linear-gradient(45deg, rgb(79, 107, 247), rgb(79, 107, 247));
-   color: black;
-   font-size: 5vh;
 }
 .sumarSegundos {
    top: 64vh;
-   left: 13vw;
+   left: calc(2vw + 24vh);
 }
 .restarSegundos {
    top: 73vh;
-   left: 13vw;
+   left: calc(2vw + 24vh);
 }
 
 /* BOTONES */
