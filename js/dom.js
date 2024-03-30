@@ -4,12 +4,15 @@ class DOM {
         this.DIV_LETRA = document.getElementsByClassName("letra");
         this.DIV_ACIERTOS = document.getElementById("aciertos");
         this.DIV_ERRORES = document.getElementById("errores");
+        this.DIV_CONTAINER_SEGUNDOS = document.getElementById("containerSegundos");
         this.DIV_SEGUNDOS = document.getElementById("segundos");
+        this.CONTAINER_PLAY_PAUSA = document.getElementById("containerPlayPausa");
         this.LETRA_CENTRAL = document.getElementById("letraCentral");
         this.NOMBRE_JUGADOR = document.getElementById("nombreJugador");
         this.NOMBRE_RIVAL = document.getElementById("nombreRival");
         this.ACIERTOS_RIVAL = document.getElementById("aciertosRival");
         this.ERRORES_RIVAL = document.getElementById("erroresRival");
+        this.CONTENEDOR_SEGUNDOS_RIVAL = document.getElementById("contenedorSegundosRival");
         this.SEGUNDOS_RIVAL = document.getElementById("segundosRival");
         this.COMODINES = document.getElementById("comodines");
     }
@@ -106,6 +109,11 @@ class DOM {
         this.ERRORES_RIVAL.innerHTML = roscoEnEspera.errores.length;
         
         this.DIV_SEGUNDOS.innerHTML = roscoActivo.segundos;
+        if (partida.porTiempo === "true") {
+            this.CONTENEDOR_SEGUNDOS_RIVAL.style.display = "block";
+        } else if (partida.porTiempo === "false") {
+            this.CONTENEDOR_SEGUNDOS_RIVAL.style.display = "none";
+        }
         this.SEGUNDOS_RIVAL.innerHTML = roscoEnEspera.segundos;
         
         this._refrescarTextoCentral();

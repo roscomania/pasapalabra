@@ -12,7 +12,7 @@ class Reloj {
     }
 
     pausarReanudar() {
-        if (roscoActivo.juegoTerminado) return;
+        if (roscoActivo.juegoTerminado || partida.porTiempo === "false") return;
 
         this.tiempoCorre = !this.tiempoCorre;
         if (!this.tiempoCorre) this.consumirTiempo();
@@ -33,7 +33,7 @@ class Reloj {
 
 
 function correrTiempo() {
-    if (!reloj.tiempoCorre) return;
+    if (!reloj.tiempoCorre || partida.porTiempo === "false") return;
     
     roscoActivo.milisegundos -= 100;
     roscoActivo.segundos = Math.max(0, Math.floor(roscoActivo.milisegundos / 1000));

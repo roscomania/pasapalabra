@@ -11,7 +11,7 @@
         <script src="js/eventosIndex.js"></script>
         <script src="js/formulario.js"></script>
     </head>
-    <body>
+    <body onload="toggleSegundosIniciales();">
         <div id="modal" class="modal">
             <div class="modal-content">
                 <h2>Complete los datos para comenzar a jugar</h2>
@@ -35,7 +35,17 @@
                     <hr>
 
                     <div class="input-container">
-                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                        <i class="fa fa-clock" aria-hidden="true"></i>
+                        <label for="checkboxPorTiempo">Por tiempo:</label>
+                        <input type="checkbox" id="checkboxPorTiempo" name="checkboxPorTiempo" onchange="toggleSegundosIniciales();"/>
+                        
+                        <label for="segundos" style="margin-left: 20px;" >Segundos iniciales:</label>
+                        <input type="number" id="segundos" name="segundos" min="0" max="180" value="145" style=""
+                        oninvalid="this.setCustomValidity('El campo ser un valor entre 0 y 180 segundos.')"
+                        oninput="setCustomValidity('')"
+                        >
+                        
+                        <i style="margin-left: 20px;" class="fa fa-info-circle" aria-hidden="true"></i>
                         <label for="comodines">Comodines disponibles:</label>
                         <select id="comodines" name="comodines" required>
                             <option value="0">0</option>
@@ -43,17 +53,6 @@
                             <option value="2" selected>2</option>
                             <option value="3">3</option>
                         </select>
-                    </div>
-                    
-                    <div class="input-container">
-                        <div class="left-side">
-                            <i class="fa fa-clock"></i>
-                            <label for="segundos">Segundos iniciales:</label>
-                            <input type="number" id="segundos" name="segundos" min="0" max="180" value="145"
-                                oninvalid="this.setCustomValidity('El campo ser un valor entre 0 y 180 segundos.')"
-                                oninput="setCustomValidity('')"
-                            >
-                        </div>
                         <div>
                             <button id="botonComenzar" type="submit">COMENZAR</button>
                         </div>

@@ -30,17 +30,21 @@
 					<div id="nombreRival" class="rectangulo nombreRival"></div>
 					<div id="aciertosRival" class="rectangulo aciertosRival"></div>
 					<div id="erroresRival" class="rectangulo erroresRival"></div>
-					<div id="segundosRival" class="circulo segundosRival"></div>
+					<div id="contenedorSegundosRival" style="display: none;">
+						<div id="segundosRival" class="circulo segundosRival"></div>
+					</div>
 				</div>
 			</div>
 			
 			<div class="inferior">
-				<div id="segundos" class="circulo countdown"></div>
-				<div id="sumarSegundos" class="circulo botonCircular sumarRestarSegundos sumarSegundos" onclick="roscoActivo.sumarSegundos(1);">
-					<i class="fa fa-plus" aria-hidden="true"></i>
-				</div>
-				<div id="restarSegundos" class="circulo botonCircular sumarRestarSegundos restarSegundos" onclick="roscoActivo.restarSegundos(1);">
-					<i class="fa fa-minus" aria-hidden="true"></i>
+				<div id="containerSegundos" style="display: none;">
+					<div id="segundos" class="circulo countdown"></div>
+					<div id="sumarSegundos" class="circulo botonCircular sumarRestarSegundos sumarSegundos" onclick="roscoActivo.sumarSegundos(1);">
+						<i class="fa fa-plus" aria-hidden="true"></i>
+					</div>
+					<div id="restarSegundos" class="circulo botonCircular sumarRestarSegundos restarSegundos" onclick="roscoActivo.restarSegundos(1);">
+						<i class="fa fa-minus" aria-hidden="true"></i>
+					</div>
 				</div>
 				<div id="aciertos" class="rectangulo aciertos">0</div>
 				<div id="errores" class="rectangulo errores">0</div>
@@ -81,7 +85,7 @@
 		
 		<div class="derecha">
 			<div class="superior">
-				<div>
+				<div id="containerPlayPausa"  style="display: none;">
 					<div id="botonPlayPausa" class="rectangulo boton botonPlayPausa" onclick="reloj.pausarReanudar();">
 						<i id="iconoPlay" class="fa fa-play" aria-hidden="true"></i>
 					</div>

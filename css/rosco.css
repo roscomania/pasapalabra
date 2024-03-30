@@ -197,7 +197,7 @@ body {
 }
 
 .nombreJugador {
-   font-size: 5vh;
+   font-size: 6vh;
    top: 2vh;
    left: 2vw;
    color: cyan;
@@ -206,7 +206,7 @@ body {
 .nombreRival {
    top: 13vh;
    left: 2vw;
-   font-size: 4vh;
+   font-size: 3.5vh;
    color: rgb(6, 97, 128);
    -webkit-text-stroke: 0.01vh cyan;
 }
