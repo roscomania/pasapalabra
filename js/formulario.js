@@ -22,7 +22,7 @@ function validarInputs() {
 
     localStorage.setItem('jugador1', jugador1.value);
     localStorage.setItem('jugador2', jugador2.value);
-    localStorage.setItem('checkboxPorTiempo', checkboxPorTiempo.checked);
+    localStorage.setItem('porTiempo', checkboxPorTiempo.checked);
     localStorage.setItem('segundos', segundos.value);
     localStorage.setItem('comodines', comodines.value);
     return true;

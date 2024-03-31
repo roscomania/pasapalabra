@@ -6,7 +6,7 @@ function iniciarJuego() {
     var esFormulario = urlParams.has('form');
     const jugador1 = localStorage.getItem('jugador1');
     const jugador2 = localStorage.getItem('jugador2');
-    const checkboxPorTiempo = localStorage.getItem('checkboxPorTiempo');
+    const checkboxPorTiempo = localStorage.getItem('porTiempo');
     const segundos = localStorage.getItem('segundos');
     const comodines = localStorage.getItem('comodines');
 
