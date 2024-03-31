@@ -6,6 +6,15 @@ document.addEventListener("keydown", function(e) {
 });
 
 
+function onLoad() {
+    var checkbox = document.getElementById("checkboxPorTiempo");
+    var input = document.getElementById("segundos");
+
+    checkbox.checked = true;
+    input.disabled = !checkbox.checked;
+}
+
+
 function toggleSegundosIniciales() {
     var checkbox = document.getElementById("checkboxPorTiempo");
     var input = document.getElementById("segundos");
