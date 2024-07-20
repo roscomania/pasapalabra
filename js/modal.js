@@ -31,6 +31,8 @@ class Modal {
     }
 
     show() {
+        if(partida.porTiempo === 'false') return;
+
         if(roscoActivo.esPrimeraVuelta) {
             this.checkboxContent.style.display = "none";
             this.modalMessage.textContent = "¿" + roscoActivo.nombreJugador + " tiene delay?"; // Actualizar el mensaje del modal
