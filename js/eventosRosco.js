@@ -1,4 +1,6 @@
 document.addEventListener("keydown", function(e) {
+    if(document.body.classList.contains('no-click')) return;
+
     e = e || window.event;
     if (e.code === ARROW_UP) {
         marcarRespuestaAutomatica(COLOR_FONDO_ACIERTO);
