@@ -8,6 +8,8 @@ class Rosco {
         this.comodines = Array.from({ length: parseInt(comodines) }, (_, i) => i);
         this.comodinesHabilitados = false;
         this.juegoTerminado = false;
+        this.esPrimeraVuelta = true;
+        this.debeMostrarModal = false;
 
         this.aciertos = [];
         this.errores = [];
@@ -58,5 +60,32 @@ class Rosco {
     restarSegundos(segundos) {
         segundos = Math.max(0, this.segundos - segundos);
         this.establecerSegundos(segundos);
+    }
+
+    restablecerSegundosPorDelay() {
+        const aciertos = this.aciertos.length;
+        const errores = this.errores.length;
+        const segundosFinalPrimeraVuelta = this.segundosFinalPrimeraVuelta;
+
+        let segundosCorriendoSegundaVuelta = 0;
+        if(segundosFinalPrimeraVuelta !== undefined) {
+            segundosCorriendoSegundaVuelta =  segundosFinalPrimeraVuelta - this.segundos;
+        }
+
+        let segundosCorrespondientes = -1.5 * (aciertos + errores) + 50 - segundosCorriendoSegundaVuelta;
+        let segundosDiferencia = 0;
+        if(this.esPrimeraVuelta) {
+            const pendientes = this.pendientes.length;
+            segundosCorrespondientes = 145 * pendientes  / 25;
+        } else {
+            if(modal.checkboxJugadoresDemora.checked) {
+                // Si el jugador perdió tiempo, consideramos que un tercio de los segundos que se perdieron fueron por demora del jugador
+                segundosDiferencia = (segundosCorrespondientes - this.segundos) / 3;
+            }
+        }
+        
+        segundosCorrespondientes = segundosCorrespondientes - segundosDiferencia;
+        segundosCorrespondientes = Math.round(segundosCorrespondientes);
+        this.establecerSegundos(Math.max(segundosCorrespondientes, this.segundos));
     }
 }

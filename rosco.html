@@ -14,13 +14,13 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 		<script src="js/constants.js"></script>
 		<script src="js/dom.js"></script>
-		<script src="js/eventosRosco.js"></script>
 		<script src="js/main.js"></script>
 		<script src="js/partida.js"></script>
 		<script src="js/reloj.js"></script>
 		<script src="js/respuestas.js"></script>
 		<script src="js/rosco.js"></script>
 		<script src="js/utils.js"></script>
+		<script src="js/modal.js"></script>
 	</head>
  
 	<body onload="iniciarJuego();">
@@ -115,5 +115,22 @@
 				</div>
 			</div>
 		</div>
+
+		<div id="modal" class="modal">
+			<div class="modal-content">
+				<b><p id="modalMessage"></p></b>
+				<div>
+					<button id="yesBtn">Sí</button>
+					<button id="noBtn">No</button>
+				</div>
+				<div id="checkboxContent" class="checkbox-content">
+					<i class="fa fa-exclamation-triangle" style="color: orangered" aria-hidden="true"></i>
+					<label for="checkboxJugadorDemora">¿Hubo demoras no consideradas como delay?</label>
+					<input type="checkbox" id="checkboxJugadorDemora" name="checkboxJugadorDemora"/>
+				</div>
+			</div>
+		</div>
+
+		<script src="js/eventosRosco.js"></script>
 	</body>
 </html>

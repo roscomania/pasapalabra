@@ -8,7 +8,14 @@ function marcarRespuesta(letra, color) {
     
     if (roscoActivo.pendientes.length == 0 && roscoActivo.pasadas.length > 0) {
         dom.marcarPasadasComoPendientes();
-        if (!roscoActivo.comodinesHabilitados) {
+        if (roscoActivo.esPrimeraVuelta) {
+            roscoActivo.esPrimeraVuelta = false;
+            if(!reloj.tiempoCorre) {
+                modal.show();
+            } else {
+                roscoActivo.segundosFinalPrimeraVuelta = roscoActivo.segundos;
+                roscoActivo.debeMostrarModal = true;
+            }
             roscoActivo.comodinesHabilitados = true;
             dom.refrescarComodines();
         }

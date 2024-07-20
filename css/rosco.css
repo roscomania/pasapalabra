@@ -77,6 +77,7 @@
 body {
    background: linear-gradient(45deg, rgb(2, 3, 71), rgb(2, 3, 71));
    color: black;
+   user-select: none;
 }
 
 .contenedorRosco {
@@ -91,7 +92,6 @@ body {
    justify-content: center;
    align-items: center;
    position: absolute;
-   user-select: none;
    font-family: Arial, Helvetica, sans-serif;
    font-size: 4vh;
 }
@@ -242,7 +242,6 @@ body {
    font-size: 35vh;
    color: black;
    font-family: Arial, Helvetica, sans-serif;
-   user-select: none;
 }
 
 .comodin {
@@ -295,4 +294,74 @@ body {
 
 .firma {
    font-size: 3.2vh;
+}
+
+
+button {
+   color: white;
+   border: none;
+   padding: 10px 10px;
+   /* cursor: pointer; */
+   transition: background-color 0.3s ease;
+}
+
+.modal {
+   display: none;
+   position: fixed;
+   z-index: 1;
+   left: 0;
+   top: 0;
+   height: 100%;
+   width: 100%;
+   overflow: hidden;
+   background-color: rgba(0, 0, 0, 0.5);
+   pointer-events: none;
+   justify-content: center;
+   align-items: center;
+}
+
+.modal-content {
+   color: rgb(6, 97, 128);
+   padding: 20px;
+   width: 100%;
+   max-width: 410px;
+   text-align: center;
+   transition: transform 0.3s ease, opacity 0.3s ease;
+   transform: scale(0.5);
+}
+
+.modal-content.show {
+   transform: scale(1);
+   opacity: 1;
+}
+
+button:hover {
+   font-weight: bolder;
+}
+
+#yesBtn {
+   background: linear-gradient(45deg, rgb(67, 235, 67), rgb(110, 144, 110));
+   float: left;
+   width: 40%;
+}
+
+#noBtn {
+   background: linear-gradient(45deg, red, rgb(136, 47, 47));
+   float: right;
+   width: 40%;
+}
+
+.checkbox-content {
+   margin-top: 10px;
+   margin-bottom: -15px;
+}
+
+#checkboxJugadorDemora {
+   margin-top: 7px;
+   display: flex;
+   float: right;
+}
+
+.no-click {
+   pointer-events: none;
 }

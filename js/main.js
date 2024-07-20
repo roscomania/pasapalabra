@@ -1,4 +1,4 @@
-let dom, reloj, roscoActivo, roscoEnEspera, partida;
+let dom, reloj, roscoActivo, roscoEnEspera, partida, modal;
 
 
 function iniciarJuego() {
@@ -18,6 +18,7 @@ function iniciarJuego() {
     history.replaceState(null, '', window.location.href.replace(window.location.search, '?form=1'));
 
     dom = new DOM();
+    modal = new Modal();
     reloj = new Reloj();
     partida = new Partida(jugador1, jugador2, checkboxPorTiempo, segundos, comodines);
     
