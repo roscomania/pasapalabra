@@ -13,6 +13,7 @@ class Modal {
         this.yesBtn.addEventListener('click', function() {
             document.body.classList.remove('no-click');
             document.querySelector('.modal-content').classList.remove('show');
+            modal.checkboxJugadoresDemora.checked = false;
             modal.modal.style.display = 'none';
 
             roscoActivo.restablecerSegundosPorDelay();
@@ -21,8 +22,8 @@ class Modal {
         this.noBtn.addEventListener('click', function() {
             document.body.classList.remove('no-click');
             document.querySelector('.modal-content').classList.remove('show');
+            modal.checkboxJugadoresDemora.checked = false;
             modal.modal.style.display = 'none';
-
         });
 
         this.modalContent.addEventListener('click', function(event) {
