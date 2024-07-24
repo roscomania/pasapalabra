@@ -16,7 +16,12 @@ function marcarRespuesta(letra, color) {
                 roscoActivo.segundosFinalPrimeraVuelta = roscoActivo.segundos;
                 roscoActivo.debeMostrarModal = true;
             }
-            roscoActivo.comodinesHabilitados = true;
+
+            if(roscoActivo.aciertos.length >= 10 || partida.porTiempo === 'true') {
+                roscoActivo.comodinesHabilitados = true;
+            } else {
+                roscoActivo.comodinesHabilitados = false;
+            }
             dom.refrescarComodines();
         }
 

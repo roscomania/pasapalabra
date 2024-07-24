@@ -127,7 +127,7 @@ class DOM {
         } else {
             let comodinesHTML = '';
             let iconosComodines = [null, 'book', 'exchange']
-            let textosComodines = ['X2', null, null]
+            let textosComodines = ['x2', null, null]
             for (let i = 0; i < partida.comodines; i++) {
                 let disabled = roscoActivo.comodines.includes(i) ? 'enabled' : 'disabled';
                 let icono = iconosComodines[i] ? `<i class="fa fa-${iconosComodines[i]}" aria-hidden="true"></i>` : `<b>${textosComodines[i]}</b>`
