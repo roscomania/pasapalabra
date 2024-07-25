@@ -371,8 +371,8 @@ button:hover {
 }
 .numeroVuelta {
    position: absolute;
-   top: 86vh;
-   font-size: 8vh;
+   top: 88vh;
+   font-size: 5vh;
    color: white;
    font-weight: bold;
    -webkit-text-stroke: 0.05vh black;
