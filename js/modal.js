@@ -36,11 +36,10 @@ class Modal {
 
         if(roscoActivo.esPrimeraVuelta) {
             this.checkboxContent.style.display = "none";
-            this.modalMessage.textContent = "¿" + roscoActivo.nombreJugador + " tiene delay?"; // Actualizar el mensaje del modal
         } else {
             this.checkboxContent.style.display = "block";
-            this.modalMessage.textContent = "¿" + roscoActivo.nombreJugador + " tuvo delay durante la primera vuelta?"; // Actualizar el mensaje del modal
         }
+        this.modalMessage.textContent = "¿" + roscoActivo.nombreJugador + " tiene delay?";
         if(reloj.tiempoCorre) return;
 
         this.body.classList.add('no-click');

@@ -76,12 +76,15 @@ class Rosco {
         let segundosDiferencia = 0;
         if(this.esPrimeraVuelta) {
             const pendientes = this.pendientes.length;
-            const respuestasEsperadas = (aciertos + errores) * 25 / (25 - pendientes);
-
-            const segundosCorrespondientesEsperados = -1.5 * respuestasEsperadas + 50;
-            const segundosConsumidosEsperados = 145 - segundosCorrespondientesEsperados;
-            const segundosConsumidos = segundosConsumidosEsperados * (25 - pendientes) / 25;
-            segundosCorrespondientes = 145 - segundosConsumidos;
+            if (pendientes != 25) {
+                const respuestasEsperadas = (aciertos + errores) * 25 / (25 - pendientes);
+                const segundosCorrespondientesEsperados = -1.5 * respuestasEsperadas + 50;
+                const segundosConsumidosEsperados = 145 - segundosCorrespondientesEsperados;
+                const segundosConsumidos = segundosConsumidosEsperados * (25 - pendientes) / 25;
+                segundosCorrespondientes = 145 - segundosConsumidos;
+            } else {
+                segundosCorrespondientes = 145;
+            }
         } else {
             if(modal.checkboxJugadoresDemora.checked) {
                 // Si el jugador perdió tiempo, consideramos que un tercio de los segundos que se perdieron fueron por demora del jugador
