@@ -10,6 +10,7 @@ class Rosco {
         this.juegoTerminado = false;
         this.esPrimeraVuelta = true;
         this.debeMostrarModal = false;
+        this.numeroVuelta = 1;
 
         this.aciertos = [];
         this.errores = [];
@@ -95,5 +96,12 @@ class Rosco {
         segundosCorrespondientes = segundosCorrespondientes - segundosDiferencia;
         segundosCorrespondientes = Math.round(segundosCorrespondientes);
         this.establecerSegundos(Math.max(segundosCorrespondientes, this.segundos));
+    }
+
+    sumarVuelta() {
+        if(this.numeroVuelta < 3) {
+            this.numeroVuelta++;
+            dom.refrescarNumeroVuelta(this.numeroVuelta);
+        }
     }
 }

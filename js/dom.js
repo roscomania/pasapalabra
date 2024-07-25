@@ -15,9 +15,10 @@ class DOM {
         this.CONTENEDOR_SEGUNDOS_RIVAL = document.getElementById("contenedorSegundosRival");
         this.SEGUNDOS_RIVAL = document.getElementById("segundosRival");
         this.COMODINES = document.getElementById("comodines");
+        this.NUMERO_VUELTA = document.getElementById("numeroVuelta");
     }
 
-    _marcarJuegoTerminado() {
+    marcarJuegoTerminado() {
         this.LETRA_CENTRAL.style.fontSize = "7vh";
         this.LETRA_CENTRAL.style.webkitTextStroke = "0.15vh cyan";
         this.LETRA_CENTRAL.innerHTML = "Juego terminado";
@@ -38,10 +39,30 @@ class DOM {
     }
 
     _refrescarTextoCentral() {
-        if (roscoActivo.milisegundos > 0 && roscoActivo.pendientes.length > 0) {
-            this._marcarJuegoContinua();
+        if(partida.porTiempo === "true") {
+            if (roscoActivo.milisegundos > 0 && roscoActivo.pendientes.length > 0) {
+                this._marcarJuegoContinua();
+            } else {
+                this.marcarJuegoTerminado();
+            }
         } else {
-            this._marcarJuegoTerminado();
+            if (roscoActivo.juegoTerminado) {
+                this.marcarJuegoTerminado();
+            } else {
+                this._marcarJuegoContinua();
+            }
+        }
+    }
+
+    refrescarNumeroVuelta() {
+        if(roscoActivo.numeroVuelta == 3) {
+            this.NUMERO_VUELTA.style.color = "red";
+            this.NUMERO_VUELTA.innerHTML = roscoActivo.numeroVuelta + " / 3" +" (NO leer)";
+            this.NUMERO_VUELTA.style.left = "calc(50vw - 26vh)";
+        } else {
+            this.NUMERO_VUELTA.innerHTML = roscoActivo.numeroVuelta + " / 3";
+            this.NUMERO_VUELTA.style.color = "white";
+            this.NUMERO_VUELTA.style.left = "calc(50vw - 7vh)";
         }
     }
 
@@ -53,6 +74,8 @@ class DOM {
         for (const letra of roscoActivo.pasadas) {
             letra.style.background = COLOR_FONDO_PENDIENTE;
         }
+
+        this.refrescarNumeroVuelta();
     }
 
     refrescarSegundos() {
@@ -119,6 +142,7 @@ class DOM {
         this._refrescarTextoCentral();
         this.refrescarBotonPlayPausa();
         this.refrescarComodines();
+        this.refrescarNumeroVuelta();
     }
 
     refrescarComodines() {
