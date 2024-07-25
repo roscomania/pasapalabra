@@ -369,3 +369,12 @@ button:hover {
 .no-click {
    pointer-events: none;
 }
+.numeroVuelta {
+   position: absolute;
+   top: 86vh;
+   left: calc(50vw - 7vh);
+   font-size: 8vh;
+   color: white;
+   font-weight: bold;
+   -webkit-text-stroke: 0.05vh black;
+}

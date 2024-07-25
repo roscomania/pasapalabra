@@ -24,8 +24,13 @@ function marcarRespuesta(letra, color) {
             }
             dom.refrescarComodines();
         }
-
+        
         roscoActivo.actualizarRespuestas();
+        if(roscoActivo.numeroVuelta == 3 && partida.porTiempo === 'false') {
+            dom.marcarJuegoTerminado();
+            return;
+        }
+        roscoActivo.sumarVuelta();
     }
     
     dom.refrescarRespuesta(letra);
