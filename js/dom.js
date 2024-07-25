@@ -57,12 +57,12 @@ class DOM {
     refrescarNumeroVuelta() {
         if(roscoActivo.numeroVuelta == 3) {
             this.NUMERO_VUELTA.style.color = "red";
-            this.NUMERO_VUELTA.innerHTML = roscoActivo.numeroVuelta + " / 3" +" (NO leer)";
-            this.NUMERO_VUELTA.style.left = "calc(50vw - 26vh)";
+            this.NUMERO_VUELTA.innerHTML = roscoActivo.numeroVuelta + " / 3" +" (sin lectura)";
+            this.NUMERO_VUELTA.style.left = "calc(50vw - 20vh)";
         } else {
             this.NUMERO_VUELTA.innerHTML = roscoActivo.numeroVuelta + " / 3";
             this.NUMERO_VUELTA.style.color = "white";
-            this.NUMERO_VUELTA.style.left = "calc(50vw - 8.5vh)";
+            this.NUMERO_VUELTA.style.left = "calc(50vw - 5vh)";
         }
     }
 
