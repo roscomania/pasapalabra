@@ -39,13 +39,13 @@
                         <label for="checkboxPorTiempo">Por tiempo:</label>
                         <input type="checkbox" id="checkboxPorTiempo" name="checkboxPorTiempo" onchange="toggleSegundosIniciales();"/>
                         
-                        <label for="segundos" style="margin-left: 20px;" >Segundos iniciales:</label>
+                        <label for="segundos" style="margin-left: 3vh;" >Segundos iniciales:</label>
                         <input type="number" id="segundos" name="segundos" min="0" max="180" value="145" style=""
                         oninvalid="this.setCustomValidity('El campo ser un valor entre 0 y 180 segundos.')"
                         oninput="setCustomValidity('')"
                         >
                         
-                        <i style="margin-left: 20px;" class="fa fa-info-circle" aria-hidden="true"></i>
+                        <i style="margin-left: 3vh;" class="fa fa-info-circle" aria-hidden="true"></i>
                         <label for="comodines">Comodines disponibles:</label>
                         <select id="comodines" name="comodines" required>
                             <option value="0">0</option>

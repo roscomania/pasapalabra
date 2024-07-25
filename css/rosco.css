@@ -112,7 +112,7 @@ body {
 
 .countdown {
    top: 60vh;
-   left: 2vw;
+   left: 5vh;
    width: 22vh;
    height: 22vh;
    background: linear-gradient(45deg, rgb(79, 107, 247), rgb(79, 107, 247));
@@ -123,7 +123,7 @@ body {
 
 .aciertos {
    top: 84vh;
-   left: 2vw;
+   left: 5vh;
    width: 12vh;
    height: 12vh;
    background: linear-gradient(45deg, rgb(67, 235, 67), rgb(110, 144, 110));
@@ -139,21 +139,26 @@ body {
    background: linear-gradient(45deg, red, rgb(136, 47, 47));
    font-size: 8vh;
    color: white;
-   -webkit-text-stroke: 0px;
 }
 
 .sumarRestarSegundos {
-   width: 3vw;
-   height: 3vw;
    background: linear-gradient(45deg, rgb(79, 107, 247), rgb(79, 107, 247));
+}
+.calcularDelay {
+   top: 76vh;
+   left: 20.5vh;
+   z-index: 1;
+   border: 0.2vh solid black;
+   color: black;
+   font-size: 4.5vh;
 }
 .sumarSegundos {
    top: 64vh;
-   left: calc(2vw + 24vh);
+   left: 29vh;
 }
 .restarSegundos {
    top: 73vh;
-   left: calc(2vw + 24vh);
+   left: 29vh;
 }
 
 /* BOTONES */
@@ -162,79 +167,79 @@ body {
    font-size: 3vh;
 }
 .botonCircular {
-   width: 3vw;
-   height: 3vw;
+   width: 6vh;
+   height: 6vh;
    border-radius: 50%;
    cursor: pointer;
 }
 
 .botonPlayPausa {
    top: 4vh;
-   right: 2vw;
-   width: 15vw;
+   right: 4vh;
+   width: 30vh;
    height: 4vh;
    background: cyan;
 }
 .acierto {
    top: 10vh;
-   right: 14vw;
+   right: 28vh;
    background: linear-gradient(45deg, rgb(67, 235, 67), rgb(110, 144, 110));
 }
 .pasapalabra {
    top: 10vh;
-   right: 10vw;
+   right: 20vh;
    background: linear-gradient(45deg, orange, rgb(249, 183, 60));
 }
 .error {
    top: 10vh;
-   right: 6vw;
+   right: 12vh;
    background: red;
 }
 .cambiarRosco {
    top: 10vh;
-   right: 2vw;
+   right: 4vh;
    background: linear-gradient(45deg, rgb(79, 107, 247), rgb(79, 107, 247));
 }
 
 .nombreJugador {
    font-size: 6vh;
    top: 2vh;
-   left: 2vw;
+   left: 4vh;
    color: cyan;
 }
 
 .nombreRival {
    top: 13vh;
-   left: 2vw;
+   left: 4vh;
    font-size: 3.5vh;
    color: rgb(6, 97, 128);
    -webkit-text-stroke: 0.01vh cyan;
 }
 .aciertosRival {
    top: 19vh;
-   left: 2vw;
-   width: 3vw;
-   height: 3vw;
+   left: 4vh;
+   width: 6vh;
+   height: 6vh;
    background: linear-gradient(45deg, rgb(67, 235, 67), rgb(110, 144, 110));
-   font-size: 2.5vw;
+   font-size: 5vh;
    color: black;
 }
 .erroresRival {
    top: 19vh;
-   left: 5.5vw;
-   width: 2vw;
-   height: 3vw;
+   left: 11vh;
+   width: 4vh;
+   height: 6vh;
    background: linear-gradient(45deg, red, rgb(136, 47, 47));
-   font-size: 2.2vw;
+   font-size: 4.5vh;
    color: white;
 }
 .segundosRival {
    top: 19vh;
-   left: 8vw;
-   width: 3vw;
-   height: 3vw;
+   left: 16vh;
+   width: 6vh;
+   height: 6vh;
    background: linear-gradient(45deg, rgb(79, 107, 247), rgb(79, 107, 247));
-   font-size: 1.5vw;
+   font-size: 3vh;
    color: black;
 }
 
@@ -247,35 +252,35 @@ body {
 .comodin {
    border: none;
    background: rgb(6, 97, 128);
-   width: 4vw;
-   height: 4vw;
+   width: 8vh;
+   height: 8vh;
 }
 .comodin.enabled {
    color: rgb(249, 183, 60);
-   -webkit-text-stroke: 1px black;
+   -webkit-text-stroke: 0.15vh black;
 }
 .comodin.disabled {
    color: lightgrey;
-   -webkit-text-stroke: 1px rgb(180, 180, 180);
+   -webkit-text-stroke: 0.2vh rgb(150, 150, 150);
 }
 
 .comodin0 {
    top: 86vh;
-   right: 2vw;
+   right: 4vh;
 }
 .comodin1 {
    top: 86vh;
-   right: 7.5vw;
+   right: 15vh;
 }
 .comodin2 {
    top: 86vh;
-   right: 13vw;
+   right: 26vh;
 }
 .copyright {
    font-size: 2.5vh;
    text-align: right;
    color: cyan;
-   width: 98vw;
+   width: calc(100% - 4vh);
 }
 
 .disabled {
@@ -284,7 +289,7 @@ body {
 }
 
 .infoRival {
-   -webkit-text-stroke: 0px;
+   -webkit-text-stroke: 0;
 }
 
 .izquierda, .derecha > .superior {
@@ -300,8 +305,7 @@ body {
 button {
    color: white;
    border: none;
-   padding: 10px 10px;
-   /* cursor: pointer; */
+   padding: 1vh 1vh;
    transition: background-color 0.3s ease;
 }
 
@@ -322,9 +326,9 @@ button {
 
 .modal-content {
    color: rgb(6, 97, 128);
-   padding: 20px;
+   padding: 3vh;
    width: 100%;
-   max-width: 410px;
+   max-width: 50vh;
    text-align: center;
    transition: transform 0.3s ease, opacity 0.3s ease;
    transform: scale(0.5);
@@ -352,14 +356,14 @@ button:hover {
 }
 
 .checkbox-content {
-   margin-top: 10px;
-   margin-bottom: -15px;
+   margin: 1vh 2vh -1.5vh 1vh;
 }
 
 #checkboxJugadorDemora {
-   margin-top: 7px;
+   margin-top: 0.4vh;
    display: flex;
    float: right;
+   zoom: 1.2;
 }
 
 .no-click {
