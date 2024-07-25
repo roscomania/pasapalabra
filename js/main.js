@@ -1,4 +1,10 @@
-let dom, reloj, roscoActivo, roscoEnEspera, partida, modal;
+let dom, reloj, roscoActivo, roscoEnEspera, partida, modal, modalSegundaOportunidad;
+
+/*
+    TODO:
+        - Agregar gestures para telefono
+        - Refactor
+*/
 
 
 function iniciarJuego() {
@@ -18,7 +24,8 @@ function iniciarJuego() {
     history.replaceState(null, '', window.location.href.replace(window.location.search, '?form=1'));
 
     dom = new DOM();
-    modal = new Modal();
+    modal = new ModalDelay();
+    modalSegundaOportunidad = new ModalSegundaOportunidad();
     reloj = new Reloj();
     partida = new Partida(jugador1, jugador2, checkboxPorTiempo, segundos, comodines);
     
