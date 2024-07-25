@@ -62,7 +62,7 @@ class DOM {
         } else {
             this.NUMERO_VUELTA.innerHTML = roscoActivo.numeroVuelta + " / 3";
             this.NUMERO_VUELTA.style.color = "white";
-            this.NUMERO_VUELTA.style.left = "calc(50vw - 7vh)";
+            this.NUMERO_VUELTA.style.left = "calc(50vw - 8.5vh)";
         }
     }
 
