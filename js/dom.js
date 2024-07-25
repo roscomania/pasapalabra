@@ -57,8 +57,8 @@ class DOM {
     refrescarNumeroVuelta() {
         if(roscoActivo.numeroVuelta == 3) {
             this.NUMERO_VUELTA.style.color = "red";
-            this.NUMERO_VUELTA.innerHTML = roscoActivo.numeroVuelta + " / 3" +" (sin lectura)";
-            this.NUMERO_VUELTA.style.left = "calc(50vw - 20vh)";
+            this.NUMERO_VUELTA.innerHTML = roscoActivo.numeroVuelta + " / 3" +" (SIN LECTURA)";
+            this.NUMERO_VUELTA.style.left = "calc(50vw - 23.5vh)";
         } else {
             this.NUMERO_VUELTA.innerHTML = roscoActivo.numeroVuelta + " / 3";
             this.NUMERO_VUELTA.style.color = "white";
@@ -68,6 +68,9 @@ class DOM {
 
     deshabilitarHabilitarComodin(boton) {
         boton.classList.toggle("disabled");
+        if(boton.id == "segundaOportunidad" && boton.classList.contains("disabled")) {
+            modalSegundaOportunidad.show();
+        }
     }
 
     marcarPasadasComoPendientes() {
@@ -150,13 +153,14 @@ class DOM {
             this.COMODINES.style.display = 'none';
         } else {
             let comodinesHTML = '';
-            let iconosComodines = [null, 'book', 'exchange']
-            let textosComodines = ['x2', null, null]
+            let iconosComodines = [null, 'book', 'exchange'];
+            let textosComodines = ['x2', null, null];
+            let nombresComodines = ["segundaOportunidad", "relectura", "intercambioLetra"]
             for (let i = 0; i < partida.comodines; i++) {
                 let disabled = roscoActivo.comodines.includes(i) ? 'enabled' : 'disabled';
                 let icono = iconosComodines[i] ? `<i class="fa fa-${iconosComodines[i]}" aria-hidden="true"></i>` : `<b>${textosComodines[i]}</b>`
                 comodinesHTML += `
-                    <div id="${i}" onclick="roscoActivo.deshabilitarHabilitarComodin(this);"
+                    <div id="${nombresComodines[i]}" onclick="roscoActivo.deshabilitarHabilitarComodin(this);"
                     class="${disabled} circulo botonCircular comodin comodin${i}">
                         ${icono}
                     </div>

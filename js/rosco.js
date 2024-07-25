@@ -96,6 +96,8 @@ class Rosco {
         segundosCorrespondientes = segundosCorrespondientes - segundosDiferencia;
         segundosCorrespondientes = Math.round(segundosCorrespondientes);
         this.establecerSegundos(Math.max(segundosCorrespondientes, this.segundos));
+
+        modal.checkboxJugadoresDemora.checked = false;
     }
 
     sumarVuelta() {
