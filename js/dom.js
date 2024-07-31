@@ -68,7 +68,7 @@ class DOM {
 
     deshabilitarHabilitarComodin(boton) {
         boton.classList.toggle("disabled");
-        if(boton.id == "segundaOportunidad" && boton.classList.contains("disabled")) {
+        if(boton.id == "0" && boton.classList.contains("disabled")) {
             modalSegundaOportunidad.show();
         }
     }
@@ -155,12 +155,11 @@ class DOM {
             let comodinesHTML = '';
             let iconosComodines = [null, 'book', 'exchange'];
             let textosComodines = ['x2', null, null];
-            let nombresComodines = ["segundaOportunidad", "relectura", "intercambioLetra"]
             for (let i = 0; i < partida.comodines; i++) {
-                let disabled = roscoActivo.comodines.includes(i) ? 'enabled' : 'disabled';
+                let disabled = roscoActivo.comodines.includes(i) ? '' : 'disabled';
                 let icono = iconosComodines[i] ? `<i class="fa fa-${iconosComodines[i]}" aria-hidden="true"></i>` : `<b>${textosComodines[i]}</b>`
                 comodinesHTML += `
-                    <div id="${nombresComodines[i]}" onclick="roscoActivo.deshabilitarHabilitarComodin(this);"
+                    <div id="${i}" onclick="roscoActivo.deshabilitarHabilitarComodin(this);"
                     class="${disabled} circulo botonCircular comodin comodin${i}">
                         ${icono}
                     </div>
