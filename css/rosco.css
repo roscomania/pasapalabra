@@ -254,8 +254,6 @@ body {
    background: rgb(6, 97, 128);
    width: 8vh;
    height: 8vh;
-}
-.comodin.enabled {
    color: rgb(249, 183, 60);
    -webkit-text-stroke: 0.15vh black;
 }
