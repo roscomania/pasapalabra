@@ -46,7 +46,7 @@ class DOM {
                 this.marcarJuegoTerminado();
             }
         } else {
-            if (roscoActivo.juegoTerminado) {
+            if (roscoActivo.pendientes.length == 0) {
                 this.marcarJuegoTerminado();
             } else {
                 this._marcarJuegoContinua();
