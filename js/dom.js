@@ -46,7 +46,7 @@ class DOM {
                 this.marcarJuegoTerminado();
             }
         } else {
-            if (roscoActivo.pendientes.length == 0) {
+            if (roscoActivo.juegoTerminado || roscoActivo.pendientes.length == 0) {
                 this.marcarJuegoTerminado();
             } else {
                 this._marcarJuegoContinua();
@@ -55,9 +55,9 @@ class DOM {
     }
 
     refrescarNumeroVuelta() {
-        if(roscoActivo.numeroVuelta == 3) {
+        if(roscoActivo.numeroVuelta >= 3) {
             this.NUMERO_VUELTA.style.color = "red";
-            this.NUMERO_VUELTA.innerHTML = roscoActivo.numeroVuelta + " / 3" +" (SIN LECTURA)";
+            this.NUMERO_VUELTA.innerHTML = Math.min(roscoActivo.numeroVuelta, 3) + " / 3" +" (SIN LECTURA)";
             this.NUMERO_VUELTA.style.left = "calc(50vw - 23.5vh)";
         } else {
             this.NUMERO_VUELTA.innerHTML = roscoActivo.numeroVuelta + " / 3";

@@ -24,13 +24,16 @@ function marcarRespuesta(letra, color) {
             }
             dom.refrescarComodines();
         }
-        
+
         roscoActivo.actualizarRespuestas();
-        if(roscoActivo.numeroVuelta == 3 && partida.porTiempo === 'false') {
-            dom.marcarJuegoTerminado();
-            return;
-        }
         roscoActivo.sumarVuelta();
+        if(roscoActivo.numeroVuelta > 3 && partida.porTiempo === 'false') {
+            dom.marcarJuegoTerminado();
+        }
+    } else {
+        if(roscoActivo.numeroVuelta <= 3 && partida.porTiempo === 'false') {
+            roscoActivo.juegoTerminado = false;
+        }
     }
     
     dom.refrescarRespuesta(letra);
