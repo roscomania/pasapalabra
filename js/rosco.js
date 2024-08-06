@@ -101,9 +101,7 @@ class Rosco {
     }
 
     sumarVuelta() {
-        if(this.numeroVuelta < 3) {
-            this.numeroVuelta++;
-            dom.refrescarNumeroVuelta(this.numeroVuelta);
-        }
+        this.numeroVuelta++;
+        dom.refrescarNumeroVuelta();
     }
 }
