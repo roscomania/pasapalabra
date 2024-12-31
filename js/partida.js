@@ -1,5 +1,6 @@
 class Partida {
-    constructor(jugador1, jugador2, segundos, comodines) {
+    constructor(jugador1, jugador2, porTiempo, segundos, comodines) {
+        this.porTiempo = porTiempo;
         segundos = parseInt(segundos);
         this.comodines = parseInt(comodines);
 

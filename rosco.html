@@ -7,95 +7,134 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-<html>
-	<head> 
+<html translate="no">
+	<head>
 		<title>Roscomanía</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 		<script src="js/constants.js"></script>
 		<script src="js/dom.js"></script>
-		<script src="js/eventosRosco.js"></script>
 		<script src="js/main.js"></script>
 		<script src="js/partida.js"></script>
 		<script src="js/reloj.js"></script>
 		<script src="js/respuestas.js"></script>
 		<script src="js/rosco.js"></script>
+		<script src="js/utils.js"></script>
+		<script src="js/modal.js"></script>
 	</head>
  
 	<body onload="iniciarJuego();">
-		<div>
-			<div id="nombreJugador" class="rectangulo nombreJugador deg-nombreJugador"></div>
-			<div>	
-				<div id="nombreRival" class="rectangulo nombreRival deg-nombreRival"></div>
-				<div id="aciertosRival" class="rectangulo aciertosRival deg-aciertosRival"></div>
-				<div id="erroresRival" class="rectangulo erroresRival deg-erroresRival"></div>
-				<div id="segundosRival" class="circulo segundosRival deg-segundosRival"></div>
+		<div class="izquierda">
+			<div class="superior">
+				<div id="nombreJugador" class="rectangulo nombreJugador"></div>
+				<div class="infoRival">
+					<div id="nombreRival" class="rectangulo nombreRival"></div>
+					<div id="aciertosRival" class="rectangulo aciertosRival"></div>
+					<div id="erroresRival" class="rectangulo erroresRival"></div>
+					<div id="contenedorSegundosRival" style="display: none;">
+						<div id="segundosRival" class="circulo segundosRival"></div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="inferior">
+				<div id="containerSegundos" style="display: none;">
+					<div id="calcularDelay" class="circulo botonCircular sumarRestarSegundos calcularDelay" onclick="modal.show();">
+						<i class="fa fa-clock" aria-hidden="true"></i>
+					</div>
+					<div id="segundos" class="circulo countdown"></div>
+					<div id="sumarSegundos" class="circulo botonCircular sumarRestarSegundos sumarSegundos" onclick="roscoActivo.sumarSegundos(1);">
+						<i class="fa fa-plus" aria-hidden="true"></i>
+					</div>
+					<div id="restarSegundos" class="circulo botonCircular sumarRestarSegundos restarSegundos" onclick="roscoActivo.restarSegundos(1);">
+						<i class="fa fa-minus" aria-hidden="true"></i>
+					</div>
+				</div>
+				<div id="aciertos" class="rectangulo aciertos">0</div>
+				<div id="errores" class="rectangulo errores">0</div>
 			</div>
 		</div>
 
-		<div>
-			<div id="segundos" class="circulo countdown deg-countdown"></div>
-			<div id="sumarSegundos" class="circulo botonCircular sumarRestarSegundos deg-sumarSegundos" onclick="roscoActivo.sumarSegundos(1);">
-				<i class="fa fa-plus" aria-hidden="true"></i>
-			</div>
-			<div id="restarSegundos" class="circulo botonCircular sumarRestarSegundos deg-restarSegundos" onclick="roscoActivo.restarSegundos(1);">
-				<i class="fa fa-minus" aria-hidden="true"></i>
-			</div>
-			<div id="aciertos" class="rectangulo aciertos deg-aciertos">0</div>
-			<div id="errores" class="rectangulo errores deg-errores">0</div>
-		</div>
 
-		<div id="rosco" class="contenedorRosco">
-			<div class="circulo letra deg-A" onclick="marcarRespuestaBoton(this);">A</div>
-			<div class="circulo letra deg-B" onclick="marcarRespuestaBoton(this);">B</div>   
-			<div class="circulo letra deg-C" onclick="marcarRespuestaBoton(this);">C</div> 
-			<div class="circulo letra deg-D" onclick="marcarRespuestaBoton(this);">D</div> 
-			<div class="circulo letra deg-E" onclick="marcarRespuestaBoton(this);">E</div> 
-			<div class="circulo letra deg-F" onclick="marcarRespuestaBoton(this);">F</div>
-			<div class="circulo letra deg-G" onclick="marcarRespuestaBoton(this);">G </div> 
-			<div class="circulo letra deg-H" onclick="marcarRespuestaBoton(this);">H</div> 
-			<div class="circulo letra deg-I" onclick="marcarRespuestaBoton(this);">I</div> 
-			<div class="circulo letra deg-J" onclick="marcarRespuestaBoton(this);">J</div> 
-			<div class="circulo letra deg-L" onclick="marcarRespuestaBoton(this);">L</div> 
-			<div class="circulo letra deg-M" onclick="marcarRespuestaBoton(this);">M</div> 
-			<div class="circulo letra deg-N" onclick="marcarRespuestaBoton(this);">N</div> 
-			<div class="circulo letra deg-ENIE" onclick="marcarRespuestaBoton(this);">Ñ</div> 
-			<div class="circulo letra deg-O" onclick="marcarRespuestaBoton(this);">O</div>
-			<div class="circulo letra deg-P" onclick="marcarRespuestaBoton(this);">P</div>
-			<div class="circulo letra deg-Q" onclick="marcarRespuestaBoton(this);">Q</div> 
-			<div class="circulo letra deg-R" onclick="marcarRespuestaBoton(this);">R</div> 
-			<div class="circulo letra deg-S" onclick="marcarRespuestaBoton(this);">S</div> 
-			<div class="circulo letra deg-T" onclick="marcarRespuestaBoton(this);">T</div> 
-			<div class="circulo letra deg-U" onclick="marcarRespuestaBoton(this);">U</div> 
-			<div class="circulo letra deg-V" onclick="marcarRespuestaBoton(this);">V</div> 
-			<div class="circulo letra deg-X" onclick="marcarRespuestaBoton(this);">X</div> 
-			<div class="circulo letra deg-Y" onclick="marcarRespuestaBoton(this);">Y</div> 
-			<div class="circulo letra deg-Z" onclick="marcarRespuestaBoton(this);">Z</div>
-			<div id="letraCentral" class="letraCentral">A</div>
-		</div>
-
-		<div>
-			<div>
-				<div id="botonPlayPausa" class="rectangulo boton botonPlayPausa deg-botonPlayPausa" onclick="reloj.pausarReanudar();">
-					<i id="iconoPlay" class="fa fa-play" aria-hidden="true"></i>
-				</div>
-				<div class="circulo botonCircular cambiarRosco deg-cambiarRosco" onclick="partida.cambiarRoscoActivo();">
-					<i class="fa fa-repeat" aria-hidden="true"></i>
-				</div>
-			</div>
-			<div>
-				<div onclick="marcarRespuestaAutomatica(COLOR_FONDO_ACIERTO);" class="circulo botonCircular acierto deg-acierto">
-					<i class="fa fa-thumbs-up" aria-hidden="true"></i>
-				</div>
-				<div onclick="marcarRespuestaAutomatica(COLOR_FONDO_PASADA);" class="circulo botonCircular pasapalabra deg-pasapalabra">
-					<i class="fa fa-pause" aria-hidden="true"></i>
-				</div>
-				<div onclick="marcarRespuestaAutomatica(COLOR_FONDO_ERROR);" class="circulo botonCircular error deg-error">
-					<i class="fa fa-thumbs-down" aria-hidden="true"></i>
-				</div>
+		<div class="centro">
+			<div id="rosco" class="contenedorRosco">
+				<div class="circulo letra deg-A" onclick="marcarRespuestaBoton(this);">A</div>
+				<div class="circulo letra deg-B" onclick="marcarRespuestaBoton(this);">B</div>   
+				<div class="circulo letra deg-C" onclick="marcarRespuestaBoton(this);">C</div> 
+				<div class="circulo letra deg-D" onclick="marcarRespuestaBoton(this);">D</div> 
+				<div class="circulo letra deg-E" onclick="marcarRespuestaBoton(this);">E</div> 
+				<div class="circulo letra deg-F" onclick="marcarRespuestaBoton(this);">F</div>
+				<div class="circulo letra deg-G" onclick="marcarRespuestaBoton(this);">G </div>
+				<div class="circulo letra deg-H" onclick="marcarRespuestaBoton(this);">H</div> 
+				<div class="circulo letra deg-I" onclick="marcarRespuestaBoton(this);">I</div> 
+				<div class="circulo letra deg-J" onclick="marcarRespuestaBoton(this);">J</div> 
+				<div class="circulo letra deg-L" onclick="marcarRespuestaBoton(this);">L</div> 
+				<div class="circulo letra deg-M" onclick="marcarRespuestaBoton(this);">M</div> 
+				<div class="circulo letra deg-N" onclick="marcarRespuestaBoton(this);">N</div> 
+				<div class="circulo letra deg-ENIE" onclick="marcarRespuestaBoton(this);">Ñ</div> 
+				<div class="circulo letra deg-O" onclick="marcarRespuestaBoton(this);">O</div>
+				<div class="circulo letra deg-P" onclick="marcarRespuestaBoton(this);">P</div>
+				<div class="circulo letra deg-Q" onclick="marcarRespuestaBoton(this);">Q</div> 
+				<div class="circulo letra deg-R" onclick="marcarRespuestaBoton(this);">R</div> 
+				<div class="circulo letra deg-S" onclick="marcarRespuestaBoton(this);">S</div> 
+				<div class="circulo letra deg-T" onclick="marcarRespuestaBoton(this);">T</div> 
+				<div class="circulo letra deg-U" onclick="marcarRespuestaBoton(this);">U</div> 
+				<div class="circulo letra deg-V" onclick="marcarRespuestaBoton(this);">V</div> 
+				<div class="circulo letra deg-X" onclick="marcarRespuestaBoton(this);">X</div> 
+				<div class="circulo letra deg-Y" onclick="marcarRespuestaBoton(this);">Y</div> 
+				<div class="circulo letra deg-Z" onclick="marcarRespuestaBoton(this);">Z</div>
+				<div id="letraCentral" class="letraCentral">A</div>
+				<div id="numeroVuelta" class="numeroVuelta" style="display: none;"></div>
 			</div>
 		</div>
+		
+		<div class="derecha">
+			<div class="superior">
+				<div id="containerPlayPausa" style="display: none;">
+					<div id="botonPlayPausa" class="rectangulo boton botonPlayPausa" onclick="reloj.pausarReanudar();">
+						<i id="iconoPlay" class="fa fa-play" aria-hidden="true"></i>
+					</div>
+				</div>
+				<div>
+					<div onclick="marcarRespuestaAutomatica(COLOR_FONDO_ACIERTO);" class="circulo botonCircular acierto">
+						<i class="fa fa-thumbs-up" aria-hidden="true"></i>
+					</div>
+					<div onclick="marcarRespuestaAutomatica(COLOR_FONDO_PASADA);" class="circulo botonCircular pasapalabra">
+						<i class="fa fa-arrow-right" aria-hidden="true"></i>
+					</div>
+					<div onclick="marcarRespuestaAutomatica(COLOR_FONDO_ERROR);" class="circulo botonCircular error">
+						<i class="fa fa-thumbs-down" aria-hidden="true"></i>
+					</div>
+					<div class="circulo botonCircular cambiarRosco" onclick="partida.cambiarRoscoActivo();">
+						<i class="fa fa-repeat" aria-hidden="true"></i>
+					</div>
+				</div>
+			</div>
+			
+			<div class="inferior">
+				<div id="comodines" style="display: none;"></div>
+				<div class="copyright">
+					Powered by:
+					<b class="firma"><i>Roscomanía</i></b>
+				</div>
+			</div>
+		</div>
 
-		<div id="comodines" style="display: none;"></div>
+		<div id="modal" class="modal">
+			<div class="modal-content">
+				<b><p id="modalMessage"></p></b>
+				<div>
+					<button id="yesBtn">Sí</button>
+					<button id="noBtn">No</button>
+				</div>
+				<div id="checkboxContent" class="checkbox-content">
+					<i class="fa fa-exclamation-triangle" style="color: orangered" aria-hidden="true"></i>
+					<label for="checkboxJugadorDemora">¿Hubo demoras no consideradas como delay?</label>
+					<input type="checkbox" id="checkboxJugadorDemora" name="checkboxJugadorDemora"/>
+				</div>
+			</div>
+		</div>
+
+		<script src="js/eventosRosco.js"></script>
 	</body>
 </html>

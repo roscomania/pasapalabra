@@ -8,12 +8,32 @@ function marcarRespuesta(letra, color) {
     
     if (roscoActivo.pendientes.length == 0 && roscoActivo.pasadas.length > 0) {
         dom.marcarPasadasComoPendientes();
-        if (!roscoActivo.comodinesHabilitados) {
-            roscoActivo.comodinesHabilitados = true;
+        if (roscoActivo.esPrimeraVuelta) {
+            roscoActivo.esPrimeraVuelta = false;
+            if(!reloj.tiempoCorre) {
+                modal.show();
+            } else {
+                roscoActivo.segundosFinalPrimeraVuelta = roscoActivo.segundos;
+                roscoActivo.debeMostrarModal = true;
+            }
+
+            if(roscoActivo.aciertos.length >= 10 || partida.porTiempo === 'true') {
+                roscoActivo.comodinesHabilitados = true;
+            } else {
+                roscoActivo.comodinesHabilitados = false;
+            }
             dom.refrescarComodines();
         }
 
         roscoActivo.actualizarRespuestas();
+        roscoActivo.sumarVuelta();
+        if(roscoActivo.numeroVuelta > 3 && partida.porTiempo === 'false') {
+            dom.marcarJuegoTerminado();
+        }
+    } else {
+        if(roscoActivo.numeroVuelta <= 3 && partida.porTiempo === 'false') {
+            roscoActivo.juegoTerminado = false;
+        }
     }
     
     dom.refrescarRespuesta(letra);
