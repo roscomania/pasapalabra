@@ -3,7 +3,7 @@ class Rosco {
         this.nombreJugador = nombreJugador;
         this.activo = activo;
         this.segundos = parseInt(segundos);
-        this.segundos_iniciales = segundos;
+        this.segundosIniciales = segundos;
         this.milisegundos = segundos * 1000;
         this.comodines = Array.from({ length: parseInt(comodines) }, (_, i) => i);
         this.comodinesHabilitados = false;
@@ -73,18 +73,18 @@ class Rosco {
             segundosCorriendoSegundaVuelta =  segundosFinalPrimeraVuelta - this.segundos;
         }
 
-        let segundosCorrespondientes = -1.5 * (aciertos + errores) + 50 - segundosCorriendoSegundaVuelta;
+        let segundosCorrespondientes = -1.5 * (aciertos + errores) + (50 + this.segundosIniciales - 145) - segundosCorriendoSegundaVuelta;
         let segundosDiferencia = 0;
         if(this.esPrimeraVuelta) {
             const pendientes = this.pendientes.length;
             if (pendientes != 25) {
                 const respuestasEsperadas = (aciertos + errores) * 25 / (25 - pendientes);
                 const segundosCorrespondientesEsperados = -1.5 * respuestasEsperadas + 50;
-                const segundosConsumidosEsperados = 145 - segundosCorrespondientesEsperados;
+                const segundosConsumidosEsperados = this.segundosIniciales - segundosCorrespondientesEsperados;
                 const segundosConsumidos = segundosConsumidosEsperados * (25 - pendientes) / 25;
-                segundosCorrespondientes = 145 - segundosConsumidos;
+                segundosCorrespondientes = this.segundosIniciales - segundosConsumidos;
             } else {
-                segundosCorrespondientes = 145;
+                segundosCorrespondientes = this.segundosIniciales;
             }
         } else {
             if(modal.checkboxJugadoresDemora.checked) {
