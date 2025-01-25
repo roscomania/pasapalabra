@@ -11,10 +11,10 @@ function marcarRespuesta(letra, color) {
         if (roscoActivo.esPrimeraVuelta) {
             roscoActivo.esPrimeraVuelta = false;
             if(!reloj.tiempoCorre) {
-                modal.show();
+                roscoActivo.restablecerSegundosPorDelay();
             } else {
                 roscoActivo.segundosFinalPrimeraVuelta = roscoActivo.segundos;
-                roscoActivo.debeMostrarModal = true;
+                roscoActivo.debeCalcularDelay = true;
             }
 
             if(roscoActivo.aciertos.length >= 10 || partida.porTiempo === 'true') {

@@ -39,7 +39,7 @@
 			
 			<div class="inferior">
 				<div id="containerSegundos" style="display: none;">
-					<div id="calcularDelay" class="circulo botonCircular sumarRestarSegundos calcularDelay" onclick="modal.show();">
+					<div id="calcularDelay" class="circulo botonCircular sumarRestarSegundos calcularDelay" onclick="roscoActivo.restablecerSegundosPorDelay();">
 						<i class="fa fa-clock" aria-hidden="true"></i>
 					</div>
 					<div id="segundos" class="circulo countdown"></div>
@@ -129,8 +129,6 @@
 				</div>
 				<div id="checkboxContent" class="checkbox-content">
 					<i class="fa fa-exclamation-triangle" style="color: orangered" aria-hidden="true"></i>
-					<label for="checkboxJugadorDemora">¿Hubo demoras no consideradas como delay?</label>
-					<input type="checkbox" id="checkboxJugadorDemora" name="checkboxJugadorDemora"/>
 				</div>
 			</div>
 		</div>
