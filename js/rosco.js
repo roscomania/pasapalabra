@@ -9,13 +9,14 @@ class Rosco {
         this.comodinesHabilitados = false;
         this.juegoTerminado = false;
         this.esPrimeraVuelta = true;
-        this.debeMostrarModal = false;
+        this.debeCalcularDelay = false;
         this.numeroVuelta = 1;
 
         this.aciertos = [];
         this.errores = [];
         this.pasadas = [];
         this.pendientes = Array.from(dom.DIV_LETRA);
+        this.delayCorregido = false;
     }
 
     actualizarRespuestas() {
@@ -64,6 +65,8 @@ class Rosco {
     }
 
     restablecerSegundosPorDelay() {
+        if (this.delayCorregido || partida.porTiempo === 'false' || reloj.tiempoCorre) return;
+
         const aciertos = this.aciertos.length;
         const errores = this.errores.length;
         const segundosFinalPrimeraVuelta = this.segundosFinalPrimeraVuelta;
@@ -86,17 +89,12 @@ class Rosco {
                 segundosCorrespondientes = this.segundosIniciales;
             }
         } else {
-            if(modal.checkboxJugadoresDemora.checked) {
-                // Si el jugador perdió tiempo, consideramos que un tercio de los segundos que se perdieron fueron por demora del jugador
-                segundosDiferencia = (segundosCorrespondientes - this.segundos) / 3;
-            }
+            this.delayCorregido = true;
+            dom.refrescarBotonDelay();
         }
 
-        segundosCorrespondientes = segundosCorrespondientes - segundosDiferencia;
         segundosCorrespondientes = Math.round(segundosCorrespondientes);
         this.establecerSegundos(Math.max(segundosCorrespondientes, this.segundos));
-
-        modal.checkboxJugadoresDemora.checked = false;
     }
 
     sumarVuelta() {

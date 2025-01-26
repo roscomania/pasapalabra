@@ -9,9 +9,9 @@ class Reloj {
         this.tiempoCorre = false;
         this.consumirTiempo();
 
-        if(roscoActivo.debeMostrarModal) {
-            modal.show();
-            roscoActivo.debeMostrarModal = false;
+        if(roscoActivo.debeCalcularDelay) {
+            roscoActivo.restablecerSegundosPorDelay();
+            roscoActivo.debeCalcularDelay = false;
         }
         dom.refrescarBotonPlayPausa();
     }
@@ -22,9 +22,9 @@ class Reloj {
         this.tiempoCorre = !this.tiempoCorre;
         if (!this.tiempoCorre) this.consumirTiempo();
 
-        if(roscoActivo.debeMostrarModal) {
-            modal.show();
-            roscoActivo.debeMostrarModal = false;
+        if(roscoActivo.debeCalcularDelay) {
+            roscoActivo.restablecerSegundosPorDelay();
+            roscoActivo.debeCalcularDelay = false;
         }
         
         dom.refrescarBotonPlayPausa();
@@ -53,7 +53,7 @@ function correrTiempo() {
         clearInterval(this.interval);
 
         if(roscoActivo.esPrimeraVuelta) {
-            modal.show();
+            roscoActivo.restablecerSegundosPorDelay();
         }
     }
     dom.refrescarSegundos();

@@ -16,6 +16,7 @@ class DOM {
         this.SEGUNDOS_RIVAL = document.getElementById("segundosRival");
         this.COMODINES = document.getElementById("comodines");
         this.NUMERO_VUELTA = document.getElementById("numeroVuelta");
+        this.DIV_CALCULAR_DELAY = document.getElementById("calcularDelay");
     }
 
     marcarJuegoTerminado() {
@@ -69,7 +70,7 @@ class DOM {
     deshabilitarHabilitarComodin(boton) {
         boton.classList.toggle("disabled");
         if(boton.id == "0" && boton.classList.contains("disabled")) {
-            modalSegundaOportunidad.show();
+            modal.show();
         }
     }
 
@@ -146,6 +147,7 @@ class DOM {
         this.refrescarBotonPlayPausa();
         this.refrescarComodines();
         this.refrescarNumeroVuelta();
+        this.refrescarBotonDelay();
     }
 
     refrescarComodines() {
@@ -169,5 +171,13 @@ class DOM {
             this.COMODINES.innerHTML = comodinesHTML;
             this.COMODINES.style.display = 'block';
         };
+    }
+
+    refrescarBotonDelay() {
+        if (roscoActivo.delayCorregido) {
+            this.DIV_CALCULAR_DELAY.style.display = 'none';
+        } else {
+            this.DIV_CALCULAR_DELAY.style.display = '';
+        }
     }
 }
