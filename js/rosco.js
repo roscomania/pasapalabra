@@ -76,12 +76,12 @@ class Rosco {
             segundosCorriendoSegundaVuelta =  segundosFinalPrimeraVuelta - this.segundos;
         }
 
-        let segundosCorrespondientes = -1.5 * (aciertos + errores) + (40 + this.segundosIniciales - 145) - segundosCorriendoSegundaVuelta;
+        let segundosCorrespondientes = -1.5 * (aciertos + errores) + (45 + this.segundosIniciales - 145) - segundosCorriendoSegundaVuelta;
         if(this.esPrimeraVuelta) {
             const pendientes = this.pendientes.length;
             if (pendientes != 25) {
                 const respuestasEsperadas = (aciertos + errores) * 25 / (25 - pendientes);
-                const segundosCorrespondientesEsperados = -1.5 * respuestasEsperadas + 40;
+                const segundosCorrespondientesEsperados = -1.5 * respuestasEsperadas + 45;
                 const segundosConsumidosEsperados = this.segundosIniciales - segundosCorrespondientesEsperados;
                 const segundosConsumidos = segundosConsumidosEsperados * (25 - pendientes) / 25;
                 segundosCorrespondientes = this.segundosIniciales - segundosConsumidos;
