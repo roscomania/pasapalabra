@@ -10,12 +10,7 @@ function marcarRespuesta(letra, color) {
         dom.marcarPasadasComoPendientes();
         if (roscoActivo.esPrimeraVuelta) {
             roscoActivo.esPrimeraVuelta = false;
-            if(!reloj.tiempoCorre) {
-                roscoActivo.restablecerSegundosPorDelay();
-            } else {
-                roscoActivo.segundosFinalPrimeraVuelta = roscoActivo.segundos;
-                roscoActivo.debeCalcularDelay = true;
-            }
+            roscoActivo.restablecerSegundosPorDelay();
 
             if(roscoActivo.aciertos.length >= 10 || partida.porTiempo === 'true') {
                 roscoActivo.comodinesHabilitados = true;
