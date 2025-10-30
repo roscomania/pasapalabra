@@ -32,8 +32,14 @@ class Reloj {
 
     consumirTiempo() {
         if (roscoActivo.milisegundos == 0) return;
+        let consumo = 200; // valor por defecto
+        // Si queda menos de 1 segundo, reducimos la cantidad que se consume
+        if (roscoActivo.milisegundos < 1000) {
+            // por ejemplo, que consuma solo un 10% del tiempo restante
+            consumo = 150;
+        }
 
-        const milisegundosMin = roscoActivo.milisegundos - 200;
+        const milisegundosMin = roscoActivo.milisegundos - consumo;
         const milisegundosMax = roscoActivo.segundos * 1000;
 
         roscoActivo.milisegundos = Math.max(milisegundosMin, milisegundosMax);    
@@ -44,16 +50,16 @@ class Reloj {
 
 function correrTiempo() {
     if (!reloj.tiempoCorre || partida.porTiempo === "false") return;
-    
+
     roscoActivo.milisegundos -= 100;
     roscoActivo.segundos = Math.max(0, Math.floor(roscoActivo.milisegundos / 1000));
 
-    if (roscoActivo.milisegundos == 0) {
-        reloj.pausar();
-        clearInterval(this.interval);
-
+    if (roscoActivo.milisegundos == 0) { 
         if(roscoActivo.esPrimeraVuelta) {
             roscoActivo.restablecerSegundosPorDelay();
+        } else {
+            reloj.pausar();
+            clearInterval(this.interval);
         }
     }
     dom.refrescarSegundos();

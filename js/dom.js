@@ -30,7 +30,13 @@ class DOM {
     _marcarJuegoContinua() {
         this.LETRA_CENTRAL.style.fontSize = "35vh";
         this.LETRA_CENTRAL.style.webkitTextStroke = "0.75vh cyan";
-        this.LETRA_CENTRAL.innerHTML = roscoActivo.pendientes[0].innerText;
+        if (roscoActivo.pendientes.length) {
+            this.LETRA_CENTRAL.innerHTML = roscoActivo.pendientes[0].innerText;
+        } else {
+            if (roscoActivo.pasadas.length) {
+                this.LETRA_CENTRAL.innerHTML = roscoActivo.pasadas[0].innerText;
+            }
+        }
         roscoActivo.juegoTerminado = false;
     }
 
@@ -41,7 +47,7 @@ class DOM {
 
     _refrescarTextoCentral() {
         if(partida.porTiempo === "true") {
-            if (roscoActivo.milisegundos > 0 && roscoActivo.pendientes.length > 0) {
+            if (roscoActivo.milisegundos > 0 && (roscoActivo.pendientes.length + roscoActivo.pasadas.length) > 0) {
                 this._marcarJuegoContinua();
             } else {
                 this.marcarJuegoTerminado();
@@ -83,8 +89,12 @@ class DOM {
     }
 
     refrescarSegundos() {
-        this.DIV_SEGUNDOS.innerHTML = roscoActivo.segundos;
-        
+        if (roscoActivo.milisegundos < 1000 && roscoActivo.milisegundos > 0) {
+            this.DIV_SEGUNDOS.innerHTML = (roscoActivo.milisegundos / 1000).toFixed(1); // muestra 0.5, 0.3, etc.
+        } else {
+            this.DIV_SEGUNDOS.innerHTML = roscoActivo.segundos; // segundos enteros
+        }
+
         this._refrescarTextoCentral();
     }
 

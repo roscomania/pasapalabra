@@ -65,7 +65,7 @@ class Rosco {
     }
 
     restablecerSegundosPorDelay() {
-        if (this.delayCorregido || partida.porTiempo === 'false' || reloj.tiempoCorre) return;
+        if (this.delayCorregido || partida.porTiempo === 'false') return;
 
         const aciertos = this.aciertos.length;
         const errores = this.errores.length;
@@ -95,6 +95,11 @@ class Rosco {
 
         segundosCorrespondientes = Math.round(segundosCorrespondientes);
         this.establecerSegundos(Math.max(segundosCorrespondientes, this.segundos));
+    }
+
+    restablecerSegundosPorDelayMedianteClick() {
+        if (reloj.tiempoCorre) return;
+        this.restablecerSegundosPorDelay();
     }
 
     sumarVuelta() {
