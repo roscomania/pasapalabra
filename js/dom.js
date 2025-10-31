@@ -145,13 +145,21 @@ class DOM {
         this.DIV_ERRORES.innerHTML = roscoActivo.errores.length;
         this.ERRORES_RIVAL.innerHTML = roscoEnEspera.errores.length;
         
-        this.DIV_SEGUNDOS.innerHTML = roscoActivo.segundos;
+        if (roscoActivo.milisegundos < 1000 && roscoActivo.milisegundos > 0) {
+            this.DIV_SEGUNDOS.innerHTML = (roscoActivo.milisegundos / 1000).toFixed(1); // muestra 0.5, 0.3, etc.
+        } else {
+            this.DIV_SEGUNDOS.innerHTML = roscoActivo.segundos; // segundos enteros
+        }
         if (partida.porTiempo === "true") {
             this.CONTENEDOR_SEGUNDOS_RIVAL.style.display = "block";
         } else if (partida.porTiempo === "false") {
             this.CONTENEDOR_SEGUNDOS_RIVAL.style.display = "none";
         }
-        this.SEGUNDOS_RIVAL.innerHTML = roscoEnEspera.segundos;
+        if (roscoEnEspera.milisegundos < 1000 && roscoEnEspera.milisegundos > 0) {
+            this.SEGUNDOS_RIVAL.innerHTML = (roscoEnEspera.milisegundos / 1000).toFixed(1); // muestra 0.5, 0.3, etc.
+        } else {
+            this.SEGUNDOS_RIVAL.innerHTML = roscoEnEspera.segundos; // segundos enteros
+        }
         
         this._refrescarTextoCentral();
         this.refrescarBotonPlayPausa();

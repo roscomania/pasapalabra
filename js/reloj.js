@@ -36,7 +36,7 @@ class Reloj {
         // Si queda menos de 1 segundo, reducimos la cantidad que se consume
         if (roscoActivo.milisegundos < 1000) {
             // por ejemplo, que consuma solo un 10% del tiempo restante
-            consumo = 150;
+            consumo = 100;
         }
 
         const milisegundosMin = roscoActivo.milisegundos - consumo;
@@ -44,6 +44,8 @@ class Reloj {
 
         roscoActivo.milisegundos = Math.max(milisegundosMin, milisegundosMax);    
         roscoActivo.segundos = Math.max(0, Math.floor(roscoActivo.milisegundos / 1000));
+
+        dom.refrescar();
     };
 }
 
